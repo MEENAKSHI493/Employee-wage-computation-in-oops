@@ -1,34 +1,41 @@
 package combridgelabz001;
 public class Employeewage {
-		public static void main(String[] args){
-			checkAttendance employee = new checkAttendance();
-			employee.isPresent();
+			public static void main(String[] args){
+				checkAttendance employee = new checkAttendance();
+				employee.isPresent();
+			    }
+			}
+
+		class checkAttendance extends calculateWage{
+			//Computation
+			int check;
+		    	static int days = 0;
+		    void isPresent(){
+		        int wage = 0;
+		        int totalWage = 0;
+		        while ( days != 20 ){
+		            days++;
+		            check = (int)(Math.floor(Math.random() * 10) % 3);
+		            switch(check) {
+		                case 0:
+		                    wage = dailyWage(8);
+		                    break;
+		                case 1:
+		                    wage = dailyWage(4);
+		                    break;
+		                default:
+		                    wage = 0;
+		                    break;
+		            }
+		            totalWage = totalWage + wage;
+		        }
+		        System.out.println("Total earning of employee for a month is "+totalWage);
 		    }
 		}
-	class checkAttendance extends calculateWage{
-		//Computation
-	    	double empCheck = Math.floor(Math.random() * 10) % 3;
-	        void isPresent(){
-	        int check = 0;
-			switch(check) {
-	            case 0:
-	                System.out.println("Employee is Present for full time ");
-	                System.out.println("Wage is " + dailyWage(8));
-	                break;
-	            case 1:
-	                System.out.println("Employee is Present for part time ");
-	                System.out.println("Wage is " + dailyWage(4));
-	                break;
-	            default:
-	                System.out.println("Employee is Absent !");
-	                break;
-	        }
-	    } 
-	}
-	//Wage computation 
-	class calculateWage {
-	    	final int wagePerHr = 20;
-	    	int dailyWage(int workHr){
-	    		return wagePerHr * workHr;
-	        }
-	    }
+		//Wage computation 
+		class calculateWage {
+		    	final int wagePerHr = 20;
+		    	int dailyWage(int workHr){
+		    		return wagePerHr * workHr;
+		        }
+		}
