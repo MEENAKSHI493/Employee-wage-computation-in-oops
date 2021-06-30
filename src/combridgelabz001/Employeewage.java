@@ -1,12 +1,11 @@
 package combridgelabz001;
 public class Employeewage {
 	public static void main(String[] args){
-		checkAttendance employee = new checkAttendance();
-		employee.isPresent();
-	    }
-	}
-
-	class checkAttendance {
+			checkAttendance employee = new checkAttendance();
+			employee.isPresent();
+		    }
+		}
+	class checkAttendance extends calculateWage{
 		//Constants
 		int IS_FULL_TIME = 1;
 		//Computation
@@ -14,7 +13,16 @@ public class Employeewage {
 	    	void isPresent(){
 	        if ( empCheck == IS_FULL_TIME )
 	            System.out.println("Employee is Present ");
-	        else
+		    System.out.println("Wage is "+dailyWage());	
 	            System.out.println("Employee is Absent ");
 	    }
+	}
+
+	//Wage computation 
+	class calculateWage {
+	    	final int wagePerHr = 20;
+	    	final int workHr = 8;
+	    	int dailyWage(){
+	        return wagePerHr * workHr;
+	    }	
 }
